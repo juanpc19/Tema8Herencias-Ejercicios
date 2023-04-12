@@ -25,7 +25,7 @@ public class HoraExacta extends Hora {
 
 	@Override
 	public String toString() {
-		return hora + ":" + minuto + ":" + segundo;
+		return super.toString() + segundo;
 	}
 
 }
