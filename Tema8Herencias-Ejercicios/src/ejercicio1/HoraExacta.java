@@ -14,18 +14,25 @@ public class HoraExacta extends Hora {
 		}
 	}
 
+	@Override
 	public void inc() {
 		segundo++;
 		if (segundo == 60) {
 			segundo = 0;
 			super.inc();
 		}
-
 	}
 
 	@Override
 	public String toString() {
-		return super.toString() + segundo;
+		String resultado = super.toString() + ":";
+
+		if (segundo <= 9) {
+			resultado += "0";
+		}
+		resultado += segundo;
+
+		return resultado;
 	}
 
 }

@@ -16,36 +16,50 @@ public class Main {
 
 		Scanner dogma = new Scanner(System.in);
 
-		while (seleccionUsuario != 6)
+		HoraExacta reloj = new HoraExacta(0, 0, 0);
 
-			switch (seleccionUsuario) {
+		while (seleccionUsuario != 4)
 
-			//
-			
-			case 1 -> {
+			System.out.println(
+					"Seleccione una opcion:\n1.Establecer hora exacta:\n2.Incrementar hora en 1 segundo.\n3.Mostrar hora exacta.\n4.Salir.");
 
+		switch (seleccionUsuario) {
+
+		case 1 -> {
+			System.out.println("Introduzca un valor para hora:");
+			hora = dogma.nextInt();
+
+			System.out.println("Introduzca un valor para minuto:");
+			minuto = dogma.nextInt();
+
+			System.out.println("Introduzca un valor para segundo:");
+			segundo = dogma.nextInt();
+
+			if (hora >= 0 & hora <= 23 && minuto >= 0 & minuto <= 59 && segundo >= 0 & segundo <= 59) {
+				reloj = new HoraExacta(hora, minuto, segundo);
+			} else {
+				System.out.println("Datos introducidos no validos, introduzca la hora de nuevo.");
 			}
-			case 2 -> {
 
-			}
-			case 3 -> {
+		}
+		case 2 -> {
+			reloj.inc();
 
-			}
-			case 4 -> {
+		}
+		case 3 -> {
+			reloj.toString();
+		}
+		case 4 -> {
+			System.out.println("Cerrando programa...");
+		}
 
-			}
-			case 5 -> {
+		default -> {
+			System.out.println("Asegurese de introducir una opcion valida: 1,2,3,4.");
+		}
 
-			}
-
-			case 6 -> {
-
-			}
-
-			}
+		}
 
 		dogma.close();
-
 	}
 
 }

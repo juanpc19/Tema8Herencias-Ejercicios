@@ -32,12 +32,26 @@ public class Hora {
 		if (minuto == 60) {
 			minuto = 0;
 			hora++;
-		} 
+			if (hora >= 24) {
+				hora = 0;
+			}
+		}
 	}
 
 	@Override
 	public String toString() {
-		return hora + ":" + minuto;
+		String resultado = "";
+		if (hora <= 9) {
+			resultado += "0";
+		}
+		resultado += hora + ":";
+
+		if (minuto <= 9) {
+			resultado += "0";
+		}
+		resultado += minuto;
+
+		return resultado;
 	}
 
 }
