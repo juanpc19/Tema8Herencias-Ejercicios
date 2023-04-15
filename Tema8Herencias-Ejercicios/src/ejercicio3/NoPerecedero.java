@@ -8,8 +8,9 @@ public class NoPerecedero extends Producto {
 		super();
 	}
 
-	public NoPerecedero(String nombre, double precio) {
+	public NoPerecedero(String nombre, double precio, String tipo) {
 		super(nombre, precio);
+		this.tipo = tipo;
 	}
 
 	public String getTipo() {
@@ -22,15 +23,13 @@ public class NoPerecedero extends Producto {
 
 	@Override
 	public String toString() {
-		String resultado = super.toString() + "tipo: " + tipo;
+		String resultado = super.toString() + ", Tipo: " + tipo;
 
 		return resultado;
 	}
 
 	public double calcular(int cantidad) {
-		double resultado = 0;
-
-		resultado = precio * cantidad;
+		double resultado = super.calcular(cantidad);
 
 		return resultado;
 	}

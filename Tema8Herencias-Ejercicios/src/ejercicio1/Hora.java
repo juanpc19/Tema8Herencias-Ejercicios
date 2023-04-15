@@ -7,14 +7,17 @@ public class Hora {
 	protected int minuto;
 
 	public Hora(int hora, int minuto) {
-		this.hora = hora;
-		this.minuto = minuto;
+		if (hora >= 0 & hora <= 23 && minuto >= 0 && minuto <= 59) {
+			this.hora = hora;
+			this.minuto = minuto;
+		}
 	}
 
 	public boolean setHora(int hora) {
 		boolean posible = false;
 		if (hora >= 0 & hora <= 23) {
 			this.hora = hora;
+			posible = true;
 		}
 		return posible;
 	}
@@ -23,6 +26,7 @@ public class Hora {
 		boolean posible = false;
 		if (minuto >= 0 && minuto <= 59) {
 			this.minuto = minuto;
+			posible = true;
 		}
 		return posible;
 	}

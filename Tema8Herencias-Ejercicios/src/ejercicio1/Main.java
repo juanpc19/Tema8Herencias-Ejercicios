@@ -18,46 +18,51 @@ public class Main {
 
 		HoraExacta reloj = new HoraExacta(0, 0, 0);
 
-		while (seleccionUsuario != 4)
+		do {
 
 			System.out.println(
 					"Seleccione una opcion:\n1.Establecer hora exacta:\n2.Incrementar hora en 1 segundo.\n3.Mostrar hora exacta.\n4.Salir.");
 
-		switch (seleccionUsuario) {
+			seleccionUsuario = dogma.nextInt();
 
-		case 1 -> {
-			System.out.println("Introduzca un valor para hora:");
-			hora = dogma.nextInt();
+			switch (seleccionUsuario) {
 
-			System.out.println("Introduzca un valor para minuto:");
-			minuto = dogma.nextInt();
+			case 1 -> {
+				System.out.println("Introduzca un valor para hora:");
+				hora = dogma.nextInt();
 
-			System.out.println("Introduzca un valor para segundo:");
-			segundo = dogma.nextInt();
+				System.out.println("Introduzca un valor para minuto:");
+				minuto = dogma.nextInt();
 
-			if (hora >= 0 & hora <= 23 && minuto >= 0 & minuto <= 59 && segundo >= 0 & segundo <= 59) {
-				reloj = new HoraExacta(hora, minuto, segundo);
-			} else {
-				System.out.println("Datos introducidos no validos, introduzca la hora de nuevo.");
+				System.out.println("Introduzca un valor para segundo:");
+				segundo = dogma.nextInt();
+
+				if (hora >= 0 & hora <= 23 && minuto >= 0 & minuto <= 59 && segundo >= 0 & segundo <= 59) {
+					reloj = new HoraExacta(hora, minuto, segundo);
+
+				} else {
+					System.out.println("Datos introducidos no validos, introduzca la hora de nuevo.");
+				}
+
+			}
+			case 2 -> {
+				reloj.inc();
+
+			}
+			case 3 -> {
+				System.out.println(reloj.toString());
+			}
+			case 4 -> {
+				System.out.println("Cerrando programa...");
 			}
 
-		}
-		case 2 -> {
-			reloj.inc();
+			default -> {
+				System.out.println("Asegurese de introducir una opcion valida: 1,2,3,4.");
+			}
 
-		}
-		case 3 -> {
-			reloj.toString();
-		}
-		case 4 -> {
-			System.out.println("Cerrando programa...");
-		}
+			}
 
-		default -> {
-			System.out.println("Asegurese de introducir una opcion valida: 1,2,3,4.");
-		}
-
-		}
+		} while (seleccionUsuario != 4);
 
 		dogma.close();
 	}

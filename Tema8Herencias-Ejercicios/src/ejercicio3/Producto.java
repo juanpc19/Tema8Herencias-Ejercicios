@@ -7,13 +7,13 @@ public class Producto {
 	protected double precio;
 
 	public Producto() {
-		super();
 	}
 
 	public Producto(String nombre, double precio) {
-		super();
-		this.nombre = nombre;
-		this.precio = precio;
+		if (precio >= 0) {
+			this.nombre = nombre;
+			this.precio = precio;
+		}
 	}
 
 	public String getNombre() {
@@ -29,12 +29,14 @@ public class Producto {
 	}
 
 	public void setPrecio(double precio) {
-		this.precio = precio;
+		if (precio >= 0) {
+			this.precio = precio;
+		}
 	}
 
 	@Override
 	public String toString() {
-		String resultado = "nombre: " + nombre + ", precio: " + precio;
+		String resultado = "Nombre: " + nombre + ", Precio: " + precio;
 
 		return resultado;
 	}
@@ -42,7 +44,9 @@ public class Producto {
 	public double calcular(int cantidad) {
 		double resultado = 0;
 
-		resultado = precio * cantidad;
+		if (precio >= 0) {
+			resultado = precio * cantidad;
+		}
 
 		return resultado;
 	}

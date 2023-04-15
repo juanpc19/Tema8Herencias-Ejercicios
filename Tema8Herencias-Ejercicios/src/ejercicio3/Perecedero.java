@@ -8,8 +8,11 @@ public class Perecedero extends Producto {
 		super();
 	}
 
-	public Perecedero(String nombre, double precio) {
+	public Perecedero(String nombre, double precio, int diasCaducar) {
 		super(nombre, precio);
+		if (diasCaducar >= 0) {
+			this.diasCaducar = diasCaducar;
+		}
 	}
 
 	public int getDiasCaducar() {
@@ -17,12 +20,14 @@ public class Perecedero extends Producto {
 	}
 
 	public void setDiasCaducar(int diasCaducar) {
-		this.diasCaducar = diasCaducar;
+		if (diasCaducar >= 0) {
+			this.diasCaducar = diasCaducar;
+		}
 	}
 
 	@Override
 	public String toString() {
-		String resultado = super.toString() + "Dias para caducar: " + diasCaducar;
+		String resultado = super.toString() + ", Dias para caducar: " + diasCaducar;
 
 		return resultado;
 	}
@@ -30,13 +35,16 @@ public class Perecedero extends Producto {
 	public double calcular(int cantidad) {
 		double resultado = 0;
 
-		resultado = precio * cantidad;
+		if (precio >= 0) {
+			resultado = precio * cantidad;
+		}
 
 		switch (diasCaducar) {
 
 		case 1 -> {
 			resultado = resultado / 4;
 		}
+
 		case 2 -> {
 			resultado = resultado / 3;
 		}
@@ -44,6 +52,7 @@ public class Perecedero extends Producto {
 		case 3 -> {
 			resultado = resultado / 2;
 		}
+
 		}
 
 		return resultado;
