@@ -10,10 +10,10 @@ public class Electrodomestico {
 		A, B, C, D, E, F
 	}
 
-	private double precioBase = 100;
-	private double peso = 5;
-	private Color color;
-	private ConsumoEnergetico consumoEnergetico;
+	protected double precioBase = 100;
+	protected double peso = 5;
+	protected Color color;
+	protected ConsumoEnergetico consumoEnergetico;
 
 	public Electrodomestico(double precioBase, double peso, Color color, ConsumoEnergetico consumoEnergetico) {
 		this.color = color;
