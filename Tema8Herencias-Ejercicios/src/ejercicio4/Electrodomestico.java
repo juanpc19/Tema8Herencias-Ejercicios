@@ -45,6 +45,10 @@ public class Electrodomestico {
 		return consumoEnergetico;
 	}
 
+	
+	//comprueba color
+	
+	
 	private void comprobarCosumoEnergetico(char letra) {
 
 		String letraCadena = String.valueOf(letra);
@@ -60,6 +64,54 @@ public class Electrodomestico {
 
 		} catch (Exception e) {
 			comprobar = false;
+		}
+
+	}
+
+	public void precioFinal() {
+
+		switch (consumoEnergetico) {
+		case A -> {
+			precioBase += 100;
+		}
+
+		case B -> {
+			precioBase += 80;
+		}
+
+		case C -> {
+			precioBase += 60;
+		}
+
+		case D -> {
+			precioBase += 50;
+		}
+
+		case E -> {
+			precioBase += 30;
+		}
+
+		case F -> {
+			precioBase += 10;
+		}
+
+		default -> {
+
+		}
+		}
+
+		
+		if (peso >= 0 && peso <= 19) {
+			precioBase += 10;
+
+		} else if (peso >= 20 && peso <= 49) {
+			precioBase += 50;
+
+		} else if (peso >= 50 && peso <= 79) {
+			precioBase += 80;
+
+		} else if (peso > 80) {
+			precioBase += 100;
 		}
 
 	}
