@@ -33,11 +33,8 @@ public class Perecedero extends Producto {
 	}
 
 	public double calcular(int cantidad) {
-		double resultado = 0;
-
-		if (precio >= 0) {
-			resultado = precio * cantidad;
-		}
+		
+		double resultado = super.calcular(cantidad);
 
 		switch (diasCaducar) {
 

@@ -28,9 +28,5 @@ public class NoPerecedero extends Producto {
 		return resultado;
 	}
 
-	public double calcular(int cantidad) {
-		double resultado = super.calcular(cantidad);
-
-		return resultado;
-	}
+	//no necesito calcular aqui porque hereda el del padre que hace exactamaente lo mismo
 }

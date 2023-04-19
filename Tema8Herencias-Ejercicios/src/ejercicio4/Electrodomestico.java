@@ -12,12 +12,20 @@ public class Electrodomestico {
 
 	protected double precioBase = 100;
 	protected double peso = 5;
-	protected Color color;
-	protected ConsumoEnergetico consumoEnergetico;
+	protected Color color = Color.valueOf("BLANCO");
+	protected ConsumoEnergetico consumoEnergetico = ConsumoEnergetico.valueOf(String.valueOf('F'));
 
-	public Electrodomestico(double precioBase, double peso, Color color, ConsumoEnergetico consumoEnergetico) {
-		this.color = color;
-		this.consumoEnergetico = consumoEnergetico;
+	public Electrodomestico(double precioBase, double peso, String color, char consumoEnergetico) {
+		String consumoEnergeticoCadena = String.valueOf(consumoEnergetico);
+
+		if (comprobarColor(color)) {
+			this.color = Color.valueOf(color);
+		}
+
+		if (comprobarCosumoEnergetico(consumoEnergetico)) {
+			this.consumoEnergetico = ConsumoEnergetico.valueOf(consumoEnergeticoCadena);
+		}
+
 		this.precioBase = precioBase;
 		this.peso = peso;
 	}
@@ -45,18 +53,12 @@ public class Electrodomestico {
 		return consumoEnergetico;
 	}
 
-	
-	//comprueba color
-	
-	
-	private void comprobarCosumoEnergetico(char letra) {
-
+	private boolean comprobarCosumoEnergetico(char letra) {
 		String letraCadena = String.valueOf(letra);
 		boolean comprobar = false;
 		try {
 			for (ConsumoEnergetico consumo : ConsumoEnergetico.values()) {
 				if (consumo.name().equals(letraCadena)) {
-
 					comprobar = true;
 					break;
 				}
@@ -65,7 +67,23 @@ public class Electrodomestico {
 		} catch (Exception e) {
 			comprobar = false;
 		}
+		return comprobar;
+	}
 
+	private boolean comprobarColor(String color) {
+		boolean comprobar = false;
+		try {
+			for (Color col : Color.values()) {
+				if (col.name().equals(color)) {
+					comprobar = true;
+					break;
+				}
+			}
+
+		} catch (Exception e) {
+			comprobar = false;
+		}
+		return comprobar;
 	}
 
 	public void precioFinal() {
@@ -100,7 +118,6 @@ public class Electrodomestico {
 		}
 		}
 
-		
 		if (peso >= 0 && peso <= 19) {
 			precioBase += 10;
 
@@ -114,6 +131,14 @@ public class Electrodomestico {
 			precioBase += 100;
 		}
 
+	}
+
+	@Override
+	public String toString() {
+		String mensaje = "PrecioBase: " + precioBase + ", peso: " + peso + ", color: " + color + ", consumoEnergetico: "
+				+ consumoEnergetico;
+
+		return mensaje;
 	}
 
 }
