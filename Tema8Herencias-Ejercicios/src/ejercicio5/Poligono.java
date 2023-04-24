@@ -2,14 +2,14 @@ package ejercicio5;
 
 public abstract class Poligono {
 
+	protected int numeroLados;
+
 	public Poligono() {
 	}
 
 	public Poligono(int numeroLados) {
 		this.numeroLados = numeroLados;
 	}
-
-	protected int numeroLados;
 
 	public int getNumeroLados() {
 		return numeroLados;
@@ -19,7 +19,8 @@ public abstract class Poligono {
 
 	@Override
 	public String toString() {
-		return "Poligono [numeroLados=" + numeroLados + "]";
+		String mensaje = "Numero de lados del poligono: " + numeroLados;
+		return mensaje;
 	}
 
 }

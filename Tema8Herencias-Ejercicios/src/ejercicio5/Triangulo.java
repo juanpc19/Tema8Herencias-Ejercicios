@@ -1,12 +1,23 @@
 package ejercicio5;
 
-public class Tringulo extends Poligono {
+public class Triangulo extends Poligono {
 
 	private double lado1;
 
 	private double lado2;
 
 	private double lado3;
+
+	public Triangulo() {
+		super();
+	}
+
+	public Triangulo(int numeroLados, double lado1, double lado2, double lado3) {
+		super(numeroLados);
+		this.lado1 = lado1;
+		this.lado2 = lado2;
+		this.lado3 = lado3;
+	}
 
 	public double getLado1() {
 		return lado1;
@@ -34,12 +45,15 @@ public class Tringulo extends Poligono {
 
 	@Override
 	public double area() {
-		// TODO Auto-generated method stub
-		return 0;
+		double resultado;
+
+		resultado = (lado1 + lado2 + lado3) / 2;
+		return resultado;
 	}
 
 	@Override
 	public String toString() {
-		return "Poligono [numeroLados=" + numeroLados + "]";
+		String mensaje = "Triangulo:" + " lado 1: " + lado1 + " lado 2: " + lado2 + " lado 3: " + lado3;
+		return mensaje;
 	}
 }

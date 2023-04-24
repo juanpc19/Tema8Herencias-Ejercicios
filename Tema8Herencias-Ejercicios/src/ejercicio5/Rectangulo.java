@@ -2,20 +2,19 @@ package ejercicio5;
 
 public class Rectangulo extends Poligono {
 
-	public Rectangulo(double lado1, double lado2) {
-		super();
-		this.lado1 = lado1;
-		this.lado2 = lado2;
-	}
-
-	public Rectangulo() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
 	private double lado1;
 
 	private double lado2;
+
+	public Rectangulo() {
+		super();
+	}
+
+	public Rectangulo(int numeroLados, double lado1, double lado2) {
+		super(numeroLados);
+		this.lado1 = lado1;
+		this.lado2 = lado2;
+	}
 
 	public double getLado1() {
 		return lado1;
@@ -35,12 +34,15 @@ public class Rectangulo extends Poligono {
 
 	@Override
 	public double area() {
-		// TODO Auto-generated method stub
-		return 0;
+		double resultado;
+
+		resultado = lado1 * lado2;
+		return resultado;
 	}
 
 	@Override
 	public String toString() {
-		return "Poligono [numeroLados=" + numeroLados + "]";
+		String mensaje = "Rectangulo:" + " lado 1: " + lado1 + " lado 2: " + lado2;
+		return mensaje;
 	}
 }
