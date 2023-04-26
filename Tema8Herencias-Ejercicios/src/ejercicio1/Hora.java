@@ -70,38 +70,41 @@ public class Hora {
 	 * atributos hora y minuto
 	 */
 	public void inc() {
-		//avanzo 1 minuto
+		// avanzo 1 minuto
 		minuto++;
-		//si despues de esto minuto toma un valor igual a 60
+		// si despues de esto minuto toma un valor igual a 60
 		if (minuto == 60) {
-			//
+			// doy a minuto valor igual a 0
 			minuto = 0;
+			// incremento hora en +1
 			hora++;
+			// y compruebo si despues de esto hora tiene valor igual a 24
 			if (hora == 24) {
+				// si es asi modifico valor de hora a 0
 				hora = 0;
 			}
 		}
 	}
 
 	/**
-	 * metodo que devolvera una cadena par imprimir por pantalla del objeto con el
-	 * que se le llama
+	 * metodo que devolvera una cadena para imprimir por pantalla con valor de los
+	 * atributos del objeto con el que se le llama
 	 */
 	@Override
 	public String toString() {
 		String resultado = "";
-		//si hora mayor o igual a 9 anado 0 a la cadena
+		// si hora mayor o igual a 9 anado 0 a la cadena
 		if (hora <= 9) {
 			resultado += "0";
 		}
-		//independientemente de condicion anterior anado hora a la cadena
+		// independientemente de condicion anterior anado hora a la cadena
 		resultado += hora + ":";
-		//si minuto mayor o igual a 9 anado 0 a la cadena
+		// si minuto mayor o igual a 9 anado 0 a la cadena
 		if (minuto <= 9) {
-			
+
 			resultado += "0";
 		}
-		//independientemente de condicion anterior anado hora a la cadena
+		// independientemente de condicion anterior anado hora a la cadena
 		resultado += minuto;
 
 		return resultado;
